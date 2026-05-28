@@ -18,10 +18,10 @@ npm run admin
 
 打开 `http://127.0.0.1:4326`。
 
-默认后台密码是 `chuangye2026`。建议使用环境变量改成自己的密码：
+默认登录名是 `xuxiaoming`，默认后台密码是 `chuangye2026`。建议使用环境变量改成自己的账号密码：
 
 ```bash
-ADMIN_PASSWORD="your-strong-password" npm run admin
+ADMIN_USERNAME="your-name" ADMIN_PASSWORD="your-strong-password" npm run admin
 ```
 
 后台能力：

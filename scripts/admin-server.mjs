@@ -3,10 +3,10 @@ import { readFile, writeFile, readdir, mkdir } from "node:fs/promises";
 import { existsSync } from "node:fs";
 import { spawn } from "node:child_process";
 import path from "node:path";
-import { fileURLToPath } from "node:url";
 
 const root = process.cwd();
 const port = Number(process.env.ADMIN_PORT || 4326);
+const username = process.env.ADMIN_USERNAME || "xuxiaoming";
 const password = process.env.ADMIN_PASSWORD || "chuangye2026";
 const postsDir = path.join(root, "content", "posts");
 const publicDir = path.join(root, "admin");
@@ -32,7 +32,7 @@ const run = (cmd, args) =>
     child.on("close", (code) => (code === 0 ? resolve(out) : reject(new Error(out))));
   });
 
-const authed = (req) => req.headers["x-admin-password"] === password;
+const authed = (req) => req.headers["x-admin-username"] === username && req.headers["x-admin-password"] === password;
 const postPath = (slug) => path.join(postsDir, `${slug}.json`);
 const slugify = (value) =>
   String(value || "")
@@ -53,7 +53,8 @@ async function listPosts() {
 async function handleApi(req, res) {
   if (req.url === "/api/login" && req.method === "POST") {
     const data = await body(req);
-    return send(res, data.password === password ? 200 : 401, { ok: data.password === password });
+    const ok = data.username === username && data.password === password;
+    return send(res, ok ? 200 : 401, { ok });
   }
   if (!authed(req)) return send(res, 401, { error: "Unauthorized" });
 
@@ -106,5 +107,6 @@ createServer(async (req, res) => {
   }
 }).listen(port, "127.0.0.1", () => {
   console.log(`chuangye2026 admin: http://127.0.0.1:${port}`);
+  console.log(`username: ${username}`);
   console.log(`password: ${password}`);
 });

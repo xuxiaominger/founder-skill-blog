@@ -1,3 +1,4 @@
+let username = localStorage.getItem("adminUsername") || "";
 let password = localStorage.getItem("adminPassword") || "";
 let posts = [];
 
@@ -9,6 +10,7 @@ async function api(path, options = {}) {
     ...options,
     headers: {
       "content-type": "application/json",
+      "x-admin-username": username,
       "x-admin-password": password,
       ...(options.headers || {})
     }
@@ -44,14 +46,19 @@ async function loadPosts() {
 }
 
 $("loginButton").addEventListener("click", async () => {
+  username = $("username").value;
   password = $("password").value;
-  await api("/api/login", { method: "POST", body: JSON.stringify({ password }) });
+  await api("/api/login", { method: "POST", body: JSON.stringify({ username, password }) });
+  localStorage.setItem("adminUsername", username);
   localStorage.setItem("adminPassword", password);
   $("login").classList.add("hidden");
   $("form").classList.remove("hidden");
   await loadPosts();
   log("已登录。");
 });
+
+$("username").value = username;
+$("password").value = password;
 
 $("newPost").addEventListener("click", () => {
   $("form").classList.remove("hidden");
