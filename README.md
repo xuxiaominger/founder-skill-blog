@@ -28,6 +28,9 @@ ADMIN_USERNAME="your-name" ADMIN_PASSWORD="your-strong-password" npm run admin
 
 - 新建文章
 - 编辑标题、slug、分类、日期、SEO 描述和 Markdown 正文
+- 编辑时右侧实时预览
+- 停顿后自动保存并重新生成静态网页
+- “预览文章”直接打开本地后台服务里的真实生成页面
 - 自动生成静态 HTML、RSS、sitemap、robots.txt
 - 一键提交并推送到 GitHub Pages
 

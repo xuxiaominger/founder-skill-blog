@@ -81,9 +81,15 @@ button,
   padding: 34px;
 }
 
-.login,
-form {
+.login {
   max-width: 900px;
+}
+
+.workspace {
+  display: grid;
+  grid-template-columns: minmax(360px, 0.95fr) minmax(360px, 1.05fr);
+  gap: 22px;
+  align-items: start;
 }
 
 label {
@@ -118,6 +124,37 @@ textarea {
   display: none;
 }
 
+.preview-panel {
+  position: sticky;
+  top: 24px;
+  overflow: hidden;
+  min-height: calc(100vh - 68px);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--white);
+}
+
+.preview-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 14px;
+  border-bottom: 1px solid var(--line);
+  color: var(--muted);
+}
+
+.preview-bar strong {
+  color: var(--ink);
+}
+
+#previewFrame {
+  width: 100%;
+  min-height: calc(100vh - 118px);
+  border: 0;
+  background: var(--paper);
+}
+
 #log {
   max-width: 900px;
   white-space: pre-wrap;
@@ -132,5 +169,13 @@ textarea {
   .sidebar {
     border-right: 0;
     border-bottom: 1px solid var(--line);
+  }
+
+  .workspace {
+    grid-template-columns: 1fr;
+  }
+
+  .preview-panel {
+    position: static;
   }
 }

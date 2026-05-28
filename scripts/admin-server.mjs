@@ -10,10 +10,22 @@ const username = process.env.ADMIN_USERNAME || "xuxiaoming";
 const password = process.env.ADMIN_PASSWORD || "chuangye2026";
 const postsDir = path.join(root, "content", "posts");
 const publicDir = path.join(root, "admin");
-const mime = { ".html": "text/html; charset=utf-8", ".css": "text/css; charset=utf-8", ".js": "text/javascript; charset=utf-8" };
+const mime = {
+  ".html": "text/html; charset=utf-8",
+  ".css": "text/css; charset=utf-8",
+  ".js": "text/javascript; charset=utf-8",
+  ".json": "application/json; charset=utf-8",
+  ".xml": "application/xml; charset=utf-8",
+  ".txt": "text/plain; charset=utf-8",
+  ".png": "image/png",
+  ".jpg": "image/jpeg",
+  ".jpeg": "image/jpeg",
+  ".webp": "image/webp"
+};
 
 const send = (res, status, data, type = "application/json; charset=utf-8") => {
   res.writeHead(status, { "content-type": type });
+  if (Buffer.isBuffer(data)) return res.end(data);
   res.end(typeof data === "string" ? data : JSON.stringify(data));
 };
 
@@ -74,7 +86,7 @@ async function handleApi(req, res) {
     };
     await writeFile(postPath(slug), `${JSON.stringify(post, null, 2)}\n`);
     await run("node", ["scripts/generate-site.mjs"]);
-    return send(res, 200, post);
+    return send(res, 200, { ...post, previewUrl: `/site/blog/${slug}.html` });
   }
 
   if (req.url === "/api/generate" && req.method === "POST") {
@@ -96,6 +108,18 @@ async function handleApi(req, res) {
 createServer(async (req, res) => {
   try {
     if (req.url.startsWith("/api/")) return await handleApi(req, res);
+    if (req.url === "/site") {
+      res.writeHead(302, { location: "/site/" });
+      return res.end();
+    }
+    if (req.url.startsWith("/site/")) {
+      const route = req.url.split("?")[0].replace(/^\/site\/?/, "") || "index.html";
+      const file = path.normalize(path.join(root, route));
+      if (!file.startsWith(root)) return send(res, 403, "Forbidden", "text/plain; charset=utf-8");
+      if (!existsSync(file)) return send(res, 404, "Not found", "text/plain; charset=utf-8");
+      const ext = path.extname(file);
+      return send(res, 200, await readFile(file), mime[ext] || "application/octet-stream");
+    }
     const route = req.url === "/" ? "/index.html" : req.url.split("?")[0];
     const file = path.join(publicDir, route);
     if (!file.startsWith(publicDir)) return send(res, 403, "Forbidden", "text/plain; charset=utf-8");
