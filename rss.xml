@@ -2,22 +2,22 @@
 <rss version="2.0">
   <channel>
     <title>FounderSkill</title>
-    <link>./</link>
+    <link>https://xuxiaominger.github.io/founder-skill-blog/</link>
     <description>个人创业案例、Google SEO 流量策略与可落地 skill。</description>
     <language>zh-CN</language>
     <item>
       <title>有钱女性高消费痛点：50 个个人创业场景</title>
-      <link>./blog/high-value-women.html</link>
+      <link>https://xuxiaominger.github.io/founder-skill-blog/blog/high-value-women.html</link>
       <description>适合个人创业者切入的高客单服务方向。</description>
     </item>
     <item>
       <title>20 个创业者案例，炼成可执行创业 Skill</title>
-      <link>./blog/personal-founder-skills.html</link>
+      <link>https://xuxiaominger.github.io/founder-skill-blog/blog/personal-founder-skills.html</link>
       <description>把优秀创业者案例拆成可落地能力。</description>
     </item>
     <item>
       <title>个人创业博客如何设计 Google SEO 内容引擎</title>
-      <link>./blog/seo-content-engine.html</link>
+      <link>https://xuxiaominger.github.io/founder-skill-blog/blog/seo-content-engine.html</link>
       <description>从 Google 流量经理视角设计自然流量系统。</description>
     </item>
   </channel>
