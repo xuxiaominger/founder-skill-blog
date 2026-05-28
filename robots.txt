@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://xuxiaominger.github.io/founder-skill-blog/sitemap.xml
+Sitemap: https://xuxiaominger.github.io/chuangye2026/sitemap.xml

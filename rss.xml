@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <rss version="2.0">
   <channel>
-    <title>FounderSkill</title>
-    <link>https://xuxiaominger.github.io/founder-skill-blog/</link>
-    <description>个人创业案例、Google SEO 流量策略与可落地 skill。</description>
+    <title>chuangye2026</title>
+    <link>https://xuxiaominger.github.io/chuangye2026/</link>
+    <description>一个面向个人创业者的展示博客平台，聚合创业案例、SEO 流量策略、细分人群洞察和可执行创业 skill。</description>
     <language>zh-CN</language>
     <item>
       <title>有钱女性高消费痛点：50 个个人创业场景</title>
-      <link>https://xuxiaominger.github.io/founder-skill-blog/blog/high-value-women.html</link>
-      <description>适合个人创业者切入的高客单服务方向。</description>
+      <link>https://xuxiaominger.github.io/chuangye2026/blog/high-value-women.html</link>
+      <description>面向个人创业者，拆解有钱女性、高消费女性、高净值女性在健康、美学、家庭、旅行、资产和隐私上的可落地服务场景。</description>
     </item>
     <item>
       <title>20 个创业者案例，炼成可执行创业 Skill</title>
-      <link>https://xuxiaominger.github.io/founder-skill-blog/blog/personal-founder-skills.html</link>
-      <description>把优秀创业者案例拆成可落地能力。</description>
+      <link>https://xuxiaominger.github.io/chuangye2026/blog/personal-founder-skills.html</link>
+      <description>把优秀创业者商业案例拆解为个人创业者可练习、可交付、可变现的 skill。</description>
     </item>
     <item>
       <title>个人创业博客如何设计 Google SEO 内容引擎</title>
-      <link>https://xuxiaominger.github.io/founder-skill-blog/blog/seo-content-engine.html</link>
-      <description>从 Google 流量经理视角设计自然流量系统。</description>
+      <link>https://xuxiaominger.github.io/chuangye2026/blog/seo-content-engine.html</link>
+      <description>从 Google 流量经理视角设计个人创业博客：关键词、内容簇、内链、转化页、结构化数据和更新节奏。</description>
     </item>
   </channel>
 </rss>

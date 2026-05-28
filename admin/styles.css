@@ -1,0 +1,136 @@
+:root {
+  --ink: #16211c;
+  --muted: #66736d;
+  --line: #d8ded8;
+  --paper: #fbfaf6;
+  --soft: #edf4ef;
+  --brand: #0f6b50;
+  --white: #ffffff;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+}
+
+.admin-shell {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  min-height: 100vh;
+}
+
+.sidebar {
+  padding: 28px;
+  border-right: 1px solid var(--line);
+  background: var(--soft);
+}
+
+.sidebar h1 {
+  margin: 0;
+  font-size: 26px;
+}
+
+.sidebar p {
+  margin: 8px 0 24px;
+  color: var(--muted);
+}
+
+button,
+.actions a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 42px;
+  padding: 0 14px;
+  border: 1px solid var(--brand);
+  border-radius: 8px;
+  background: var(--brand);
+  color: var(--white);
+  font-weight: 750;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.sidebar button {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.post-list {
+  display: grid;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.post-list button {
+  justify-content: flex-start;
+  min-height: auto;
+  padding: 12px;
+  background: var(--white);
+  color: var(--ink);
+  text-align: left;
+}
+
+.editor {
+  padding: 34px;
+}
+
+.login,
+form {
+  max-width: 900px;
+}
+
+label {
+  display: grid;
+  gap: 6px;
+  margin-bottom: 16px;
+  font-weight: 750;
+}
+
+input,
+textarea {
+  width: 100%;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 12px;
+  background: var(--white);
+  color: var(--ink);
+  font: inherit;
+}
+
+textarea {
+  resize: vertical;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.hidden {
+  display: none;
+}
+
+#log {
+  max-width: 900px;
+  white-space: pre-wrap;
+  color: var(--muted);
+}
+
+@media (max-width: 760px) {
+  .admin-shell {
+    grid-template-columns: 1fr;
+  }
+
+  .sidebar {
+    border-right: 0;
+    border-bottom: 1px solid var(--line);
+  }
+}

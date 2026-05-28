@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>chuangye2026 内部后台</title>
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <main class="admin-shell">
+      <aside class="sidebar">
+        <h1>chuangye2026</h1>
+        <p>内部博客后台</p>
+        <button id="newPost" type="button">新建文章</button>
+        <button id="generate" type="button">重新生成</button>
+        <button id="publish" type="button">发布到 GitHub</button>
+        <div id="postList" class="post-list"></div>
+      </aside>
+      <section class="editor">
+        <div id="login" class="login">
+          <h2>登录后台</h2>
+          <p>默认只监听本机 127.0.0.1，不建议部署到公网。</p>
+          <input id="password" type="password" placeholder="后台密码">
+          <button id="loginButton" type="button">进入</button>
+        </div>
+        <form id="form" class="hidden">
+          <label>标题<input id="title" required></label>
+          <label>Slug<input id="slug" required placeholder="url-slug"></label>
+          <label>分类<input id="category" placeholder="创业笔记"></label>
+          <label>发布日期<input id="date" type="date"></label>
+          <label>SEO 描述<textarea id="description" rows="3"></textarea></label>
+          <label>正文 Markdown<textarea id="body" rows="18"></textarea></label>
+          <div class="actions">
+            <button type="submit">保存并生成页面</button>
+            <a id="preview" target="_blank" rel="noreferrer">预览文章</a>
+          </div>
+        </form>
+        <pre id="log"></pre>
+      </section>
+    </main>
+    <script src="app.js"></script>
+  </body>
+</html>

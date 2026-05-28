@@ -1,0 +1,9 @@
+{
+  "scripts": {
+    "generate": "node scripts/generate-site.mjs",
+    "admin": "node scripts/admin-server.mjs",
+    "publish": "node scripts/generate-site.mjs && git add . && git commit -m \"Update chuangye2026 content\" && git push"
+  },
+  "private": true,
+  "type": "module"
+}
